@@ -16,7 +16,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 4,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             title: Text('Navi'),
@@ -24,17 +24,12 @@ class _MyAppState extends State<MyApp> {
           body: TabBarView(
             children: [
               Center(
-                child: Text("home"),
+                child: Text("chat"),
               ),
               Center(
-                child: Text("music"),
+                child: Text("map"),
               ),
-              Center(
-                child: Text("apps"),
-              ),
-              Center(
-                child: Text("settings"),
-              ),
+
             ],
           ),
           extendBodyBehindAppBar: true, // add this line
@@ -62,27 +57,17 @@ class _MyAppState extends State<MyApp> {
                 tabs: [
                   Tab(
                     icon: Icon(
-                      Icons.home_outlined,
+                      Icons.chat_outlined,
                     ),
-                    text: 'Home',
+                    text: 'chat',
                   ),
                   Tab(
-                    icon: Icon(Icons.music_note),
-                    text: 'Music',
+                    icon: Icon(Icons.map_outlined),
+                    text: 'map',
                   ),
-                  Tab(
-                    icon: Icon(
-                      Icons.apps,
-                    ),
-                    text: 'Apps',
-                  ),
-                  Tab(
-                    icon: Icon(
-                      Icons.settings,
-                    ),
-                    text: 'Settings',
-                  )
                 ],
+
+
               ),
             ),
           ),
