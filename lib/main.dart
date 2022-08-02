@@ -19,8 +19,34 @@ class _MyAppState extends State<MyApp> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Navi'),
+            title: Text('코코뮤'),
+            centerTitle: true, // 중앙정렬
+            elevation: 0.0,
+            leading: IconButton(
+            icon: Icon(Icons.notifications), // 햄버거버튼 아이콘 생성
+            onPressed: () {
+            // 아이콘 버튼 실행
+            print('menu button is clicked');
+            },
           ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.settings), // 장바구니 아이콘 생성
+                onPressed: () {
+                  // 아이콘 버튼 실행
+                  print('Shopping cart button is clicked');
+                },
+              ),
+              // IconButton(
+              //   icon: Icon(Icons.search), // 검색 아이콘 생성
+              //   onPressed: () {
+              //     // 아이콘 버튼 실행
+              //     print('Search button is clicked');
+              //   },
+              // ),
+            ],
+          ),
+
           body: TabBarView(
             children: [
               Center(
