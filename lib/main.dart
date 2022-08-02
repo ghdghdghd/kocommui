@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kocommui/settings.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      MaterialApp(
+        home: MyApp()
+      )
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -10,6 +16,8 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 }
+
+
 
 class _MyAppState extends State<MyApp> {
   @override
@@ -33,8 +41,10 @@ class _MyAppState extends State<MyApp> {
               IconButton(
                 icon: Icon(Icons.settings), // 장바구니 아이콘 생성
                 onPressed: () {
-                  // 아이콘 버튼 실행
-                  print('Shopping cart button is clicked');
+                  Navigator.push(
+                    context,
+                   MaterialPageRoute(builder: (context) => settings()),
+                  );
                 },
               ),
               // IconButton(
@@ -101,7 +111,55 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-
-
-
+  
 }
+//
+// //환경 설정 페이지
+// class settings extends StatefulWidget {
+//   const settings({Key? key}) : super(key: key);
+//
+//   @override
+//   State<settings> createState() => _notifilcationsState();
+// }
+//
+// class _notifilcationsState extends State<settings> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Material(
+//       child: Column(
+//           children: [
+//             Row(children: [
+//               IconButton(
+//                   onPressed: () {
+//                     Navigator.pop(context);
+//                   },
+//                   icon: Icon(Icons.arrow_back_ios_new)
+//               )],
+//             ),
+//             Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                 TextButton(
+//                   onPressed: () => setting1(),
+//                   child: Text('계정정보'))
+//             ]),
+//             Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   TextButton(
+//                       onPressed: () => setting2(),
+//                       child: Text('계정정보'))
+//                 ]),
+//
+//
+//           ]),
+//
+//
+//
+//
+//
+//     );
+//   }
+// }
+
+
