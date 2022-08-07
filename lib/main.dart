@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kocommui/settings.dart';
+import 'package:kocommui/home.dart';
 
 
 void main() {
@@ -20,99 +20,76 @@ class MyApp extends StatefulWidget {
 
 
 class _MyAppState extends State<MyApp> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('코코뮤'),
-            centerTitle: true, // 중앙정렬
-            elevation: 0.0,
-            leading: IconButton(
-            icon: Icon(Icons.notifications), // 햄버거버튼 아이콘 생성
-            onPressed: () {
-            // 아이콘 버튼 실행
-            print('menu button is clicked');
-            },
-          ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.settings), // 장바구니 아이콘 생성
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                   MaterialPageRoute(builder: (context) => settings()),
-                  );
-                },
-              ),
-              // IconButton(
-              //   icon: Icon(Icons.search), // 검색 아이콘 생성
-              //   onPressed: () {
-              //     // 아이콘 버튼 실행
-              //     print('Search button is clicked');
-              //   },
-              // ),
-            ],
-          ),
-
-          body: TabBarView(
-            children: [
-              Center(
-                child: Text("chat"),
-              ),
-              Center(
-                child: Text("map"),
-              ),
-
-            ],
-          ),
-          extendBodyBehindAppBar: true, // add this line
-
-          bottomNavigationBar: Container(
-            color: Colors.white, //색상
-            child: Container(
-              height: 70,
-              padding: EdgeInsets.only(bottom: 10, top: 5),
-              child: const TabBar(
-                //tab 하단 indicator size -> .label = label의 길이
-                //tab 하단 indicator size -> .tab = tab의 길이
-                indicatorSize: TabBarIndicatorSize.label,
-                //tab 하단 indicator color
-                indicatorColor: Colors.red,
-                //tab 하단 indicator weight
-                indicatorWeight: 2,
-                //label color
-                labelColor: Colors.red,
-                //unselected label color
-                unselectedLabelColor: Colors.black38,
-                labelStyle: TextStyle(
-                  fontSize: 13,
-                ),
-                tabs: [
-                  Tab(
-                    icon: Icon(
-                      Icons.chat_outlined,
-                    ),
-                    text: 'chat',
-                  ),
-                  Tab(
-                    icon: Icon(Icons.map_outlined),
-                    text: 'map',
-                  ),
-                ],
-
-
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          children: <Widget>[
+            SizedBox(height: 80.0),
+            Column(
+              children: <Widget>[
+                Image.asset('assets/diamond.png'),
+                SizedBox(height: 16.0),
+                Text('코코뮤'),
+              ],
+            ),
+            SizedBox(height: 120.0),
+            TextField(
+              controller: _usernameController,
+              decoration: InputDecoration(
+                filled: true,
+                labelText: 'Username',
               ),
             ),
-          ),
+            SizedBox(height: 12.0),
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                filled: true,
+                labelText: 'Password',
+              ),
+              obscureText: true,
+            ),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: Text('로그인'),
+                  onPressed: () {
+                    _usernameController.clear();
+                    _passwordController.clear();
+                  },
+                ),
+                RaisedButton(
+                  child: Text('계정찾기'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+             Navigator.pushReplacement(
+                 context,
+                 MaterialPageRoute(builder: (context) => Home()),
+             );
+          },
+
       ),
     );
   }
-  
 }
+
+
+
 //
 // //환경 설정 페이지
 // class settings extends StatefulWidget {
