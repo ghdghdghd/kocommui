@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kocommui/home.dart';
+import 'package:kocommui/memberFind.dart';
 
 
 void main() {
@@ -33,7 +34,11 @@ class _MyAppState extends State<MyApp> {
             SizedBox(height: 80.0),
             Column(
               children: <Widget>[
-                Image.asset('assets/diamond.png'),
+                Image.asset(
+                    'assets/images/TG.png',
+                    width: 100,
+                    height: 100,
+                ),
                 SizedBox(height: 16.0),
                 Text('코코뮤'),
               ],
@@ -55,23 +60,39 @@ class _MyAppState extends State<MyApp> {
               ),
               obscureText: true,
             ),
+            SizedBox(height: 10.0,),
+            RaisedButton(
+              child: Text('로그인'),
+              onPressed: () {
+                _usernameController.clear();
+                _passwordController.clear();
+              },
+            ),
             ButtonBar(
               children: <Widget>[
                 FlatButton(
-                  child: Text('로그인'),
+                  child: Text('아이디 찾기'),
                   onPressed: () {
-                    _usernameController.clear();
-                    _passwordController.clear();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => memberFind())
+                    );
                   },
                 ),
-                RaisedButton(
-                  child: Text('계정찾기'),
+
+                Text("|"),
+                FlatButton(
+                  child: Text('비밀번호 찾기'),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => memberFind())
+                    );
                   },
                 ),
               ],
             ),
+
           ],
         ),
       ),

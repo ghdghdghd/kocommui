@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
             ),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.settings), // 장바구니 아이콘 생성
+                icon: Icon(Icons.settings), // 설정 버튼
                 onPressed: () {
                   Navigator.push(
                     context,
