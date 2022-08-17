@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kocommui/home.dart';
 import 'package:kocommui/memberFind.dart';
 
+import 'memberFind.dart';
+
 
 void main() {
   runApp(
@@ -68,21 +70,19 @@ class _MyAppState extends State<MyApp> {
                 _passwordController.clear();
               },
             ),
+            SizedBox(height: 10.0,),
+            RaisedButton(
+              color: Colors.yellow,
+              child: Text('카카오 로그인'),
+              onPressed: () {
+                _usernameController.clear();
+                _passwordController.clear();
+              },
+            ),
             ButtonBar(
               children: <Widget>[
-                FlatButton(
-                  child: Text('아이디 찾기'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => memberFind())
-                    );
-                  },
-                ),
-
-                Text("|"),
-                FlatButton(
-                  child: Text('비밀번호 찾기'),
+                  FlatButton(
+                  child: Text('계정 찾기'),
                   onPressed: () {
                     Navigator.push(
                         context,
