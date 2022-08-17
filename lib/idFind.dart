@@ -73,11 +73,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             },
           ),
         ),
-        // -------------------------
+
         _character == SingingCharacter.email
-            ? const ListTile(
-          title: Text('Something goes here!'),
-        )
+            ? emailIdFind()
             : Container(),
 
 
@@ -122,6 +120,38 @@ class _phoneIdFindState extends State<phoneIdFind> {
             ),
           ),
         )
+      ],
+    );
+  }
+}
+
+
+
+
+class emailIdFind extends StatefulWidget {
+  const emailIdFind({Key? key}) : super(key: key);
+
+  @override
+  State<emailIdFind> createState() => _emailIdFindState();
+}
+
+class _emailIdFindState extends State<emailIdFind> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 500,
+          child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              //filled: true,
+              labelText: '이메일',
+            ),
+          ),
+
+        ),
+
       ],
     );
   }
