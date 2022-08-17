@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kocommui/idFind.dart';
+import 'package:kocommui/pwFind.dart';
 
 
 //계정찾기 페이지
@@ -30,7 +32,7 @@ class _memberFindState extends State<memberFind> with TickerProviderStateMixin {
           color: Colors.black,
         ),
         title: Text(
-          'TabPage',
+          '계정 찾기',
           style: TextStyle(color: Colors.black ),
         ),
         centerTitle: true,
@@ -49,14 +51,14 @@ class _memberFindState extends State<memberFind> with TickerProviderStateMixin {
                   height: 80,
                   alignment: Alignment.center,
                   child: Text(
-                    'Tab1',
+                    '아이디 찾기',
                   ),
                 ),
                 Container(
                   height: 80,
                   alignment: Alignment.center,
                   child: Text(
-                    'Tab2',
+                    '비밀번호 찾기',
                   ),
                 ),
               ],
@@ -79,26 +81,8 @@ class _memberFindState extends State<memberFind> with TickerProviderStateMixin {
             child: TabBarView(
               controller: _tabController,
               children: [
-                Container(
-                  // color: Colors.yellow[200],
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Tab1 View',
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-                Container(
-                  // color: Colors.green[200],
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Tab2 View',
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
+                idFind(),
+                pwFind()
               ],
             ),
           ),
