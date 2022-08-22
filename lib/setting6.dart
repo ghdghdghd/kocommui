@@ -6,7 +6,7 @@ class setting6 extends StatefulWidget {
   @override
   State<setting6> createState() => _setting6State();
 }
-
+//알림설정
 class _setting6State extends State<setting6> {
   @override
   Widget build(BuildContext context) {

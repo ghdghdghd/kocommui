@@ -29,45 +29,75 @@ class _settingsState extends State<settings> {
                   icon: Icon(Icons.arrow_back_ios_new)
               )],
             ),
+            SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.black,
+                        textStyle: TextStyle(fontSize: 30)
+                      ),
                       onPressed: () => setting1(),
                       child: Text('계정정보'))
                 ]),
+            SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                      style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          textStyle: TextStyle(fontSize: 30)
+                      ),
                       onPressed: () => setting2(),
                       child: Text('비밀번호변경'))
                 ]),
+            SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                      style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          textStyle: TextStyle(fontSize: 30)
+                      ),
                       onPressed: () => setting3(),
                       child: Text('비상연락설정'))
                 ]),
+            SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                      style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          textStyle: TextStyle(fontSize: 30)
+                      ),
                       onPressed: () => setting4(),
                       child: Text('위치공유설정'))
                 ]),
+            SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                      style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          textStyle: TextStyle(fontSize: 30)
+                      ),
                       onPressed: () => setting5(),
                       child: Text('대화기록'))
                 ]),
+            SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                      style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          textStyle: TextStyle(fontSize: 30)
+                      ),
                       onPressed: () => setting6(),
                       child: Text('알림설정'))
                 ]),

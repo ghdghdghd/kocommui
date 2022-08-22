@@ -117,6 +117,9 @@ class _phoneIdFindState extends State<phoneIdFind> {
               border: OutlineInputBorder(),
               //filled: true,
               labelText: '휴대전화(-없이)',
+              suffixIcon: TextButton(
+                  onPressed: () => ddddd(),
+                  child: Text("전송"))
             ),
           ),
         )
@@ -147,6 +150,9 @@ class _emailIdFindState extends State<emailIdFind> {
               border: OutlineInputBorder(),
               //filled: true,
               labelText: '이메일',
+              suffixIcon: TextButton(
+                  onPressed: ()=>ddddd(),
+                  child: Text("전송"))
             ),
           ),
 
@@ -154,5 +160,15 @@ class _emailIdFindState extends State<emailIdFind> {
 
       ],
     );
+  }
+}
+
+
+class ddddd extends StatelessWidget {
+  const ddddd({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

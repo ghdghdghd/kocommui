@@ -20,11 +20,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('코코뮤'),
+            iconTheme: IconThemeData(color: Colors.black),
+            backgroundColor: Colors.transparent,
+            title: Text(
+              '코코뮤',
+            style: TextStyle(color: Colors.black)
+            ),
             centerTitle: true,
             // 중앙정렬
             elevation: 0.0,

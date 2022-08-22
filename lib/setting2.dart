@@ -6,7 +6,7 @@ class setting2 extends StatefulWidget {
   @override
   State<setting2> createState() => _setting2State();
 }
-
+//비밀번호 변경
 class _setting2State extends State<setting2> {
   @override
   Widget build(BuildContext context) {

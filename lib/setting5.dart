@@ -6,7 +6,7 @@ class setting5 extends StatefulWidget {
   @override
   State<setting5> createState() => _setting5State();
 }
-
+//대화기록
 class _setting5State extends State<setting5> {
   @override
   Widget build(BuildContext context) {

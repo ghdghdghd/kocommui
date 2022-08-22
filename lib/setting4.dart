@@ -6,7 +6,7 @@ class setting4 extends StatefulWidget {
   @override
   State<setting4> createState() => _setting4State();
 }
-
+//위치공유설정
 class _setting4State extends State<setting4> {
   @override
   Widget build(BuildContext context) {
