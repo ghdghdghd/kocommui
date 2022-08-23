@@ -38,7 +38,12 @@ class _settingsState extends State<settings> {
                         primary: Colors.black,
                         textStyle: TextStyle(fontSize: 30)
                       ),
-                      onPressed: () => setting1(),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => setting1())
+                        );
+                      },
                       child: Text('계정정보'))
                 ]),
             SizedBox(height: 10.0),

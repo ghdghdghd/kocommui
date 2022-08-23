@@ -28,6 +28,13 @@ class _memberFindState extends State<memberFind> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios_new),
+            color: Colors.black,
+        ),
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
