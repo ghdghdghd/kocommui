@@ -11,8 +11,7 @@ class setting1 extends StatefulWidget {
 class _setting1State extends State<setting1> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           leading: IconButton(
             onPressed: (){
@@ -32,31 +31,35 @@ class _setting1State extends State<setting1> {
           elevation: 0.0,
           backgroundColor: Colors.transparent,
         ),
-        body: Container(
-          child: Row(children: [
-            Column(children: [
-              Icon(
-                Icons.account_circle,
-                size: 50,
-              ),
+        body: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Icon(Icons.account_circle,
+                    size: 50,),
+                  ElevatedButton(
+                      onPressed: () => dddd(),
+                      child: Text("프로필 사진 변경")),
 
-              ElevatedButton(
-                  onPressed: () => dddd(),
-                  child: Text("프로필 사진 변경")),
-            ]),
-            Column(children: [
-              Text("이름"),
-              Text("닉네임"),
-              Text("이메일")
-            ],)          
-          ]),
-     
+                ],
+              ),
+              Column(children: [
+
+                Text("이름"),
+                Text("닉네임"),
+                Text("이메일"),
+              ],)
+
+            ],
+          ),
         )
 
 
 
-      ),
     );
+
   }
 }
 
