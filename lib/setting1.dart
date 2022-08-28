@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class setting1 extends StatefulWidget {
   const setting1({Key? key}) : super(key: key);
@@ -32,27 +33,38 @@ class _setting1State extends State<setting1> {
           backgroundColor: Colors.transparent,
         ),
         body: SafeArea(
+
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
                 children: [
                   Icon(Icons.account_circle,
-                    size: 50,),
+                    size: 60,),
                   ElevatedButton(
                       onPressed: () => dddd(),
                       child: Text("프로필 사진 변경")),
 
                 ],
               ),
-              Column(children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Text("이름:",style: TextStyle(fontSize: 15.0)),
+                Text("닉네임:",style: TextStyle(fontSize: 15.0)),
+                Text("이메일:",style: TextStyle(fontSize: 15.0)),
+              ],),
+                Column(children: [
 
-                Text("이름"),
-                Text("닉네임"),
-                Text("이메일"),
+                Text("제임슨",style: TextStyle(fontSize: 15.0)),
+                Text("제머슨",style: TextStyle(fontSize: 15.0)),
+                Text("제머슨@gmail.com",style: TextStyle(fontSize: 15.0)),
               ],)
 
             ],
+
+
+
           ),
         )
 
