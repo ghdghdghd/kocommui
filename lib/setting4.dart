@@ -57,35 +57,35 @@ class _setting4State extends State<setting4> {
 
               ),
               SizedBox(width: 958.0,height: 20.0),
-              Container(
-                width: 300,
-
-                child:  Switch(
-                  value: stt,
-                  onChanged: (value) {
-                    setState(() {
-                      stt = value;
-                    });
-                  },
-                  activeColor: Colors.green,
-                ),
-                    
-              
-              ),
-              SizedBox(height: 20.0),
-              Container(
-                width: 300,
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      //filled: true,
-                      labelText: '휴대전화(-없이)',
-                      suffixIcon: TextButton(
-                          onPressed: () => wewe(),
-                          child: Text("전송"))
-                  ),
-                ),
-              )
+              // Container(
+              //   width: 300,
+              //
+              //   child:  Switch(
+              //     value: stt,
+              //     onChanged: (value) {
+              //       setState(() {
+              //         stt = value;
+              //       });
+              //     },
+              //     activeColor: Colors.green,
+              //   ),
+              //
+              //
+              // ),
+              // SizedBox(height: 20.0),
+              // Container(
+              //   width: 300,
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //         border: OutlineInputBorder(),
+              //         //filled: true,
+              //         labelText: '휴대전화(-없이)',
+              //         suffixIcon: TextButton(
+              //             onPressed: () => wewe(),
+              //             child: Text("전송"))
+              //     ),
+              //   ),
+              // )
             ],
           ),
         )
