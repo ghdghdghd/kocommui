@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                     builder: (BuildContext context) {
                       return AlertDialog(
                         content: popNotice(),
-                        insetPadding: const  EdgeInsets.fromLTRB(0,80,0, 80),
+                        insetPadding: const  EdgeInsets.fromLTRB(0,200,0, 200),
                         actions: [
                           // TextButton(
                           //   child: const Text('확인'),

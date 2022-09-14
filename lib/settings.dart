@@ -21,6 +21,7 @@ class _settingsState extends State<settings> {
     return Material(
       child: Column(
           children: [
+            SizedBox(height: 13.0),
             Row(children: [
               IconButton(
                   onPressed: () {
@@ -31,38 +32,76 @@ class _settingsState extends State<settings> {
             ),
             SizedBox(height: 10.0),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Row(
+
                 children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Colors.black,
-                        textStyle: TextStyle(fontSize: 30)
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => setting1())
-                        );
-                      },
-                      child: Text('계정정보'))
-                ]),
+                  Column(
+                    children: [
+                      Icon(Icons.account_circle,
+                        size: 60,),
+                      ElevatedButton(
+                          onPressed: () => dddd(),
+                          child: Text("프로필 사진 변경")),
+
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("이름:",style: TextStyle(fontSize: 15.0)),
+                      Text("닉네임:",style: TextStyle(fontSize: 15.0)),
+                      Text("이메일:",style: TextStyle(fontSize: 15.0)),
+                    ],),
+                  Column(children: [
+
+                    Text("제임슨",style: TextStyle(fontSize: 15.0)),
+                    Text("제머슨",style: TextStyle(fontSize: 15.0)),
+                    Text("제머슨@gmail.com",style: TextStyle(fontSize: 15.0)),
+                  ],)
+
+                ],
+
+              )],
+
+
+                ),
+            Container(width: 500,
+                child: Divider(color: Colors.grey, thickness: 1.0, height: 30,)),
             SizedBox(height: 10.0),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          textStyle: TextStyle(fontSize: 30)
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => setting2())
-                        );
-                      },
-                      child: Text('비밀번호변경'))
-                ]),
+            // Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       TextButton(
+            //           style: TextButton.styleFrom(
+            //             primary: Colors.black,
+            //             textStyle: TextStyle(fontSize: 30)
+            //           ),
+            //           onPressed: () {
+            //             Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(builder: (context) => setting1())
+            //             );
+            //           },
+            //           child: Text('계정정보'))
+            //     ]),
+            // SizedBox(height: 10.0),
+            // Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       TextButton(
+            //           style: TextButton.styleFrom(
+            //               primary: Colors.black,
+            //               textStyle: TextStyle(fontSize: 30)
+            //           ),
+            //           onPressed: () {
+            //             Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(builder: (context) => setting2())
+            //             );
+            //           },
+            //           child: Text('비밀번호변경'))
+            //     ]),
             SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
