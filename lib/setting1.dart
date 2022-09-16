@@ -51,7 +51,7 @@ class _setting1State extends State<setting1> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                 Text("이름:",style: TextStyle(fontSize: 15.0)),
-                Text("닉네임:",style: TextStyle(fontSize: 15.0)),
+                Text("나이:",style: TextStyle(fontSize: 15.0)),
                 Text("이메일:",style: TextStyle(fontSize: 15.0)),
               ],),
                 Column(children: [
