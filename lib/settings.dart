@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kocommui/setting1.dart';
 import 'package:kocommui/setting2.dart';
 import 'package:kocommui/setting3.dart';
+
 import 'package:kocommui/setting4.dart';
 import 'package:kocommui/setting5.dart';
 import 'package:kocommui/setting6.dart';
@@ -20,8 +22,9 @@ class settings extends StatefulWidget {
 
 class _settingsState extends State<settings> {
 
-  PickedFile _imageFile; // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
+  late PickedFile _imageFile; // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
   final ImagePicker _picker = ImagePicker(); // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
+
 
   @override
   Widget build(BuildContext context) {
@@ -187,6 +190,7 @@ class _settingsState extends State<settings> {
     );
   }
   Widget imageProfile() {
+
     return Center(
 
       child: Stack(
@@ -194,7 +198,7 @@ class _settingsState extends State<settings> {
           CircleAvatar(
             radius: 80,
             backgroundImage: _imageFile == null
-                ? AssetImage('assets/profile.jfif')
+                ? AssetImage('assets/images/TG.png')
                 : FileImage(File(_imageFile.path)),
           ),
           Positioned(
@@ -206,7 +210,7 @@ class _settingsState extends State<settings> {
                 },
                 child: Icon(
                   Icons.camera_alt,
-                  color: secondaryTextColor,
+                  color: Colors.red,
                   size: 40,
                 ),
               )
@@ -221,18 +225,18 @@ class _settingsState extends State<settings> {
       decoration: InputDecoration(
           border: OutlineInputBorder(
             borderSide: BorderSide(
-              color: primaryTextColor,
+              color: Colors.red,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: secondaryTextColor,
+              color: Colors.red,
               width: 2,
             ),
           ),
           prefixIcon: Icon(
             Icons.person,
-            color: primaryTextColor,
+            color: Colors.red,
           ),
           labelText: 'Name',
           hintText: 'Input your name'
@@ -281,9 +285,10 @@ class _settingsState extends State<settings> {
     );
   }
 
+  takePhoto(ImageSource source) async {
     final pickedFile = await _picker.getImage(source: source);
     setState(() {
-      _imageFile = pickedFile;
+      _imageFile = pickedFile!;
     });
   }
 }
@@ -291,4 +296,3 @@ class _settingsState extends State<settings> {
 
 
 
-}
