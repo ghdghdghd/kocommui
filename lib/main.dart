@@ -47,25 +47,26 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
             SizedBox(height: 120.0),
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Username',
-              ),
-            ),
+            // TextField(
+            //   controller: _usernameController,
+            //   decoration: InputDecoration(
+            //     filled: true,
+            //     labelText: 'Username',
+            //   ),
+            // ),
             SizedBox(height: 12.0),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Password',
-              ),
-              obscureText: true,
-            ),
+            // TextField(
+            //   controller: _passwordController,
+            //   decoration: InputDecoration(
+            //     filled: true,
+            //     labelText: 'Password',
+            //   ),
+            //   obscureText: true,
+            // ),
             SizedBox(height: 10.0,),
             RaisedButton(
-              child: Text('로그인'),
+              color: Colors.green,
+              child: Text('네이버 로그인'),
               onPressed: () {
                 _usernameController.clear();
                 _passwordController.clear();
@@ -82,15 +83,15 @@ class _MyAppState extends State<MyApp> {
             ),
             ButtonBar(
               children: <Widget>[
-                  FlatButton(
-                  child: Text('계정 찾기'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => memberFind())
-                    );
-                  },
-                ),
+                //   FlatButton(
+                //   child: Text('계정 찾기'),
+                //   onPressed: () {
+                //     Navigator.push(
+                //         context,
+                //         MaterialPageRoute(builder: (context) => memberFind())
+                //     );
+                //   },
+                // ),
               ],
             ),
 

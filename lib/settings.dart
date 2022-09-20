@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,8 +24,14 @@ class settings extends StatefulWidget {
 
 class _settingsState extends State<settings> {
 
-  late PickedFile _imageFile; // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
+  PickedFile? _imageFile; // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
   final ImagePicker _picker = ImagePicker(); // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
+
+  // @override
+  // void initState() {
+  //   _imageFile =  PickedFile F;
+  //   super.initState();
+  // }
 
 
   @override
@@ -49,9 +57,9 @@ class _settingsState extends State<settings> {
                   Column(
                     children: [
                       imageProfile(),
-                      ElevatedButton(
-                          onPressed: () => dddd(),
-                          child: Text("프로필 사진 변경")),
+                      // ElevatedButton(
+                      //     onPressed: () => dddd(),
+                      //     child: Text("프로필 사진 변경")),
 
                     ],
                   ),
@@ -115,22 +123,23 @@ class _settingsState extends State<settings> {
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          textStyle: TextStyle(fontSize: 30)
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => setting3())
-                        );
-                      },
-                      child: Text('비상연락설정'))
+                  // TextButton(
+                  //     style: TextButton.styleFrom(
+                  //         primary: Colors.black,
+                  //         textStyle: TextStyle(fontSize: 30)
+                  //     ),
+                  //     onPressed: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) => setting3())
+                  //       );
+                  //     },
+                  //     child: Text('비상연락설정')
+                  // )
                 ]),
             SizedBox(height: 10.0),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextButton(
                       style: TextButton.styleFrom(
@@ -189,29 +198,33 @@ class _settingsState extends State<settings> {
 
     );
   }
+
+
+
   Widget imageProfile() {
+
 
     return Center(
 
       child: Stack(
         children: <Widget>[
           CircleAvatar(
-            radius: 80,
+            radius: 55,
             backgroundImage: _imageFile == null
                 ? AssetImage('assets/images/TG.png')
-                : FileImage(File(_imageFile.path)),
+                : FileImage(File(_imageFile!.path)) as ImageProvider,
           ),
           Positioned(
-              bottom: 20,
-              right: 20,
+              bottom: 10,
+              right: 10,
               child: InkWell(
                 onTap: () {
                   showModalBottomSheet(context: context, builder: ((builder) => bottomSheet()));
                 },
                 child: Icon(
                   Icons.camera_alt,
-                  color: Colors.red,
-                  size: 40,
+                  color: Colors.black,
+                  size: 30,
                 ),
               )
           )
@@ -220,29 +233,29 @@ class _settingsState extends State<settings> {
     );
   }
 
-  Widget nameTextField() {
-    return TextFormField(
-      decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.red,
-              width: 2,
-            ),
-          ),
-          prefixIcon: Icon(
-            Icons.person,
-            color: Colors.red,
-          ),
-          labelText: 'Name',
-          hintText: 'Input your name'
-      ),
-    );
-  }
+  // Widget nameTextField() {
+  //   return TextFormField(
+  //     decoration: InputDecoration(
+  //         border: OutlineInputBorder(
+  //           borderSide: BorderSide(
+  //             color: Colors.red,
+  //           ),
+  //         ),
+  //         focusedBorder: OutlineInputBorder(
+  //           borderSide: BorderSide(
+  //             color: Colors.red,
+  //             width: 2,
+  //           ),
+  //         ),
+  //         prefixIcon: Icon(
+  //           Icons.person,
+  //           color: Colors.red,
+  //         ),
+  //         labelText: 'Name',
+  //         hintText: 'Input your name'
+  //     ),
+  //   );
+  // }
 
   Widget bottomSheet() {
     return Container(
@@ -291,6 +304,8 @@ class _settingsState extends State<settings> {
       _imageFile = pickedFile!;
     });
   }
+
+
 }
 
 
