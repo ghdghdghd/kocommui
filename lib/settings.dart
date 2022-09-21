@@ -27,12 +27,8 @@ class _settingsState extends State<settings> {
   PickedFile? _imageFile; // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
   final ImagePicker _picker = ImagePicker(); // 카메라/갤러리에서 사진 가져올 때 사용함 (image_picker)
 
-  // @override
-  // void initState() {
-  //   _imageFile =  PickedFile F;
-  //   super.initState();
-  // }
-
+  bool localPermission = false;
+  bool notice = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,43 +45,50 @@ class _settingsState extends State<settings> {
               )],
             ),
             SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Row(
+            
+            Card(
+              shape: RoundedRectangleBorder( //모서리 둥글게 하기 위해 사용
+                borderRadius : BorderRadius.circular(16.0)
+              ),
+              elevation: 4.0 ,//그림자 깊이
 
-                children: [
-                  Column(
-                    children: [
-                      imageProfile(),
-                      // ElevatedButton(
-                      //     onPressed: () => dddd(),
-                      //     child: Text("프로필 사진 변경")),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [Padding(padding: EdgeInsets.only(left: 30)),
 
-                    ],
+                  Row(
+
+                  children: [
+                    Column(
+                      children: [
+                        imageProfile(),
+                      ],
+                    ),
+                    Padding(padding: EdgeInsets.only(left: 40)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("이름:",style: TextStyle(fontSize: 15.0)),
+                        Text("나이:",style: TextStyle(fontSize: 15.0)),
+                        Text("이메일:",style: TextStyle(fontSize: 15.0)),
+                      ],),
+                    Column(children: const [
+
+                      Text("제임슨",style: TextStyle(fontSize: 15.0)),
+                      Text("20대",style: TextStyle(fontSize: 15.0)),
+                      Text("제머슨@gmail.com",style: TextStyle(fontSize: 15.0)),
+                    ],)
+
+                  ],
+
+                )],
+
+
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("이름:",style: TextStyle(fontSize: 15.0)),
-                      Text("나이:",style: TextStyle(fontSize: 15.0)),
-                      Text("이메일:",style: TextStyle(fontSize: 15.0)),
-                    ],),
-                  Column(children: [
-
-                    Text("제임슨",style: TextStyle(fontSize: 15.0)),
-                    Text("20대",style: TextStyle(fontSize: 15.0)),
-                    Text("제머슨@gmail.com",style: TextStyle(fontSize: 15.0)),
-                  ],)
-
-                ],
-
-              )],
-
-
-                ),
-            Container(width: 500,
-                child: Divider(color: Colors.grey, thickness: 1.0, height: 30,)),
-            SizedBox(height: 10.0),
+            ),
+            // Container(width: 500, //선 긋기
+            //     child: Divider(color: Colors.grey, thickness: 1.0, height: 30,)),
+            // SizedBox(height: 10.0),
             // Row(
             //     mainAxisAlignment: MainAxisAlignment.center,
             //     children: [
@@ -122,7 +125,7 @@ class _settingsState extends State<settings> {
             SizedBox(height: 10.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   // TextButton(
                   //     style: TextButton.styleFrom(
                   //         primary: Colors.black,
@@ -141,23 +144,7 @@ class _settingsState extends State<settings> {
             Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          textStyle: TextStyle(fontSize: 30)
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => setting4())
-                        );
-                      },
-                      child: Text('위치공유설정'))
-                ]),
-            SizedBox(height: 10.0),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                  Padding(padding: EdgeInsets.only(left: 23)),
                   TextButton(
                       style: TextButton.styleFrom(
                           primary: Colors.black,
@@ -173,20 +160,64 @@ class _settingsState extends State<settings> {
                 ]),
             SizedBox(height: 10.0),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          textStyle: TextStyle(fontSize: 30)
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => setting6())
-                        );
-                      },
-                      child: Text('알림설정'))
+                  Padding(padding: EdgeInsets.only(left: 30)),
+                  Text("알림 설정",style: TextStyle(fontSize: 30, color: Colors.black)),
+                  Padding(padding: EdgeInsets.only(left: 125)),
+                  Switch(
+                    value: notice,
+                    onChanged: (value) {
+                      setState(() {
+                        notice = value;
+                      });
+                    },
+                    activeColor: Colors.green,
+                  )
+                  // TextButton(
+                  //     style: TextButton.styleFrom(
+                  //         primary: Colors.black,
+                  //         textStyle: TextStyle(fontSize: 30)
+                  //     ),
+                  //     onPressed: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) => setting6())
+                  //       );
+                  //     },
+                  //     child: Text('알림설정'))
+                ]),
+            SizedBox(height: 10.0),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(padding: EdgeInsets.only(left: 30)),
+                  Text("위치공유설정",style: TextStyle(fontSize: 30, color: Colors.black)),
+                  Padding(padding: EdgeInsets.only(left: 80)),
+                  Switch(
+                    value: localPermission,
+                    onChanged: (value) {
+                      setState(() {
+                        localPermission = value;
+                      });
+                    },
+                    activeColor: Colors.green,
+                  )
+
+
+                  // TextButton(
+                  //     style: TextButton.styleFrom(
+                  //         primary: Colors.black,
+                  //         textStyle: TextStyle(fontSize: 30)
+                  //     ),
+                  //     onPressed: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(builder: (context) => setting4())
+                  //       );
+                  //     },
+                  //     child: Text('위치공유설정'))
+
                 ]),
 
 
@@ -208,8 +239,9 @@ class _settingsState extends State<settings> {
 
       child: Stack(
         children: <Widget>[
+
           CircleAvatar(
-            radius: 55,
+            radius: 50,
             backgroundImage: _imageFile == null
                 ? AssetImage('assets/images/TG.png')
                 : FileImage(File(_imageFile!.path)) as ImageProvider,

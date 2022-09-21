@@ -38,29 +38,30 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.notifications), // 햄버거버튼 아이콘 생성
               onPressed: () {
 
-                showDialog(
-                    context: context,
-                    barrierDismissible: true, // 바깥 영역 터치시 닫을지 여부
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        content: popNotice(),
-                        insetPadding: const  EdgeInsets.fromLTRB(0,200,0, 200),
-                        actions: [
-                          // TextButton(
-                          //   child: const Text('확인'),
-                          //   onPressed: () {
-                          //     Navigator.of(context).pop();
-                          //   },
-                          // ),
-                        ],
-                      );
-                    }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => popNotice()),
                 );
 
 
-
-                // 아이콘 버튼 실행
-                print('menu button is clicked');
+                // showDialog(
+                //     context: context,
+                //     barrierDismissible: true, // 바깥 영역 터치시 닫을지 여부
+                //     builder: (BuildContext context) {
+                //       return AlertDialog(
+                //         content: popNotice(),
+                //         insetPadding: const  EdgeInsets.fromLTRB(0,200,0, 200),
+                //         actions: [
+                //           // TextButton(
+                //           //   child: const Text('확인'),
+                //           //   onPressed: () {
+                //           //     Navigator.of(context).pop();
+                //           //   },
+                //           // ),
+                //         ],
+                //       );
+                //     }
+                // );
               },
             ),
             actions: <Widget>[
