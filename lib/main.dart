@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           children: <Widget>[
-            SizedBox(height: 80.0),
+            SizedBox(height: 100.0),
             Column(
               children: <Widget>[
                 Image.asset(
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                 Text('코코뮤'),
               ],
             ),
-            SizedBox(height: 120.0),
+            SizedBox(height: 200.0),
             // TextField(
             //   controller: _usernameController,
             //   decoration: InputDecoration(

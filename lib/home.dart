@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kocommui/companion.dart';
 import 'package:kocommui/settings.dart';
 
 
@@ -22,7 +23,7 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
             iconTheme: IconThemeData(color: Colors.black),
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
             // 중앙정렬
             elevation: 0.0,
             leading: IconButton(
-              icon: Icon(Icons.notifications), // 햄버거버튼 아이콘 생성
+              icon: Icon(Icons.notifications_outlined, size: 35,), // 환경설정 아이콘
               onPressed: () {
 
                 Navigator.push(
@@ -66,7 +67,7 @@ class _HomeState extends State<Home> {
             ),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.settings), // 설정 버튼
+                icon: Icon(Icons.settings_outlined, size: 35), // 설정 버튼
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -91,6 +92,9 @@ class _HomeState extends State<Home> {
               ),
               Center(
                 child: Text("map"),
+              ),
+              Center(
+                child: companion(),
               ),
 
             ],
@@ -125,8 +129,14 @@ class _HomeState extends State<Home> {
                     text: 'chat',
                   ),
                   Tab(
-                    icon: Icon(Icons.map_outlined),
+                    icon: Icon(
+                        Icons.map_outlined),
                     text: 'map',
+                  ),
+                  Tab(
+                    icon: Icon(
+                        Icons.groups_outlined),
+                    text: 'companion',
                   ),
                 ],
 

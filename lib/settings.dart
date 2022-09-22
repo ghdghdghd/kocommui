@@ -35,16 +35,17 @@ class _settingsState extends State<settings> {
     return Material(
       child: Column(
           children: [
-            SizedBox(height: 13.0),
+            SizedBox(height: 15.0),
             Row(children: [
               IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back_ios_new)
+                  icon: Icon(Icons.arrow_back_ios_new),
+                  iconSize: 30,
               )],
             ),
-            SizedBox(height: 10.0),
+            // SizedBox(height: 10.0),
             
             Card(
               shape: RoundedRectangleBorder( //모서리 둥글게 하기 위해 사용
@@ -56,32 +57,41 @@ class _settingsState extends State<settings> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [Padding(padding: EdgeInsets.only(left: 30)),
 
-                  Row(
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 20, 0, 20),//card 높이 위아래 크기조절
 
-                  children: [
-                    Column(
-                      children: [
-                        imageProfile(),
-                      ],
-                    ),
-                    Padding(padding: EdgeInsets.only(left: 40)),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text("이름:",style: TextStyle(fontSize: 15.0)),
-                        Text("나이:",style: TextStyle(fontSize: 15.0)),
-                        Text("이메일:",style: TextStyle(fontSize: 15.0)),
-                      ],),
-                    Column(children: const [
 
-                      Text("제임슨",style: TextStyle(fontSize: 15.0)),
-                      Text("20대",style: TextStyle(fontSize: 15.0)),
-                      Text("제머슨@gmail.com",style: TextStyle(fontSize: 15.0)),
-                    ],)
+                    child: Row(
 
-                  ],
+                    children: [
+                      Column(
+                        children: [
+                          imageProfile(),
+                        ],
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 40)),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text("이름:",style: TextStyle(fontSize: 15.0)),
+                          SizedBox(height: 10.0,),
+                          Text("나이:",style: TextStyle(fontSize: 15.0)),
+                          SizedBox(height: 10.0,),
+                          Text("이메일:",style: TextStyle(fontSize: 15.0)),
+                        ],),
+                      Column(children: const [
 
-                )],
+                        Text("제임슨",style: TextStyle(fontSize: 15.0)),
+                        SizedBox(height: 10.0,),
+                        Text("20대",style: TextStyle(fontSize: 15.0)),
+                        SizedBox(height: 10.0,),
+                        Text("제머슨@gmail.com",style: TextStyle(fontSize: 15.0)),
+                      ],)
+
+                    ],
+
+                ),
+                  )],
 
 
                   ),
@@ -251,7 +261,12 @@ class _settingsState extends State<settings> {
               right: 10,
               child: InkWell(
                 onTap: () {
-                  showModalBottomSheet(context: context, builder: ((builder) => bottomSheet()));
+                  showModalBottomSheet(
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(20.0))
+                      ),
+                      builder: ((builder) => bottomSheet()));
                 },
                 child: Icon(
                   Icons.camera_alt,
@@ -289,8 +304,49 @@ class _settingsState extends State<settings> {
   //   );
   // }
 
+  // Widget bottomSheet() {
+  //   return Container(
+  //       height: 100,
+  //       width: MediaQuery.of(context).size.width,
+  //       margin: EdgeInsets.symmetric(
+  //           horizontal: 20,
+  //           vertical: 20
+  //       ),
+  //       child: Column(
+  //         children: <Widget>[
+  //           Text(
+  //             'Choose Profile photo',
+  //             style: TextStyle(
+  //               fontSize: 20,
+  //             ),
+  //           ),
+  //           SizedBox(height: 20,),
+  //           Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //             children: <Widget>[
+  //               FlatButton.icon(
+  //                 icon: Icon(Icons.camera, size: 50,),
+  //                 onPressed: () {
+  //                   takePhoto(ImageSource.camera);
+  //                 },
+  //                 label: Text('Camera', style: TextStyle(fontSize: 20),),
+  //               ),
+  //               FlatButton.icon(
+  //                 icon: Icon(Icons.photo_library, size: 50,),
+  //                 onPressed: () {
+  //                   takePhoto(ImageSource.gallery);
+  //                 },
+  //                 label: Text('Gallery', style: TextStyle(fontSize: 20),),
+  //               )
+  //             ],
+  //           )
+  //         ],
+  //       )
+  //   );
+  // }
   Widget bottomSheet() {
     return Container(
+        
         height: 100,
         width: MediaQuery.of(context).size.width,
         margin: EdgeInsets.symmetric(
@@ -299,36 +355,29 @@ class _settingsState extends State<settings> {
         ),
         child: Column(
           children: <Widget>[
-            Text(
-              'Choose Profile photo',
-              style: TextStyle(
-                fontSize: 20,
-              ),
+            // Text(
+            //   'Choose Profile photo',
+            //   style: TextStyle(
+            //     fontSize: 20,
+            //   ),
+            // ),
+            TextButton(
+                onPressed: () {
+                  takePhoto(ImageSource.camera);
+                },
+                child: Text("사진 바로 촬영", style: TextStyle(color: Colors.black))
             ),
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                FlatButton.icon(
-                  icon: Icon(Icons.camera, size: 50,),
-                  onPressed: () {
-                    takePhoto(ImageSource.camera);
-                  },
-                  label: Text('Camera', style: TextStyle(fontSize: 20),),
-                ),
-                FlatButton.icon(
-                  icon: Icon(Icons.photo_library, size: 50,),
-                  onPressed: () {
-                    takePhoto(ImageSource.gallery);
-                  },
-                  label: Text('Gallery', style: TextStyle(fontSize: 20),),
-                )
-              ],
-            )
+            TextButton(
+                onPressed: () {
+                  takePhoto(ImageSource.gallery);
+                },
+                child: Text("앨범에서 사진 선택", style: TextStyle(color: Colors.black))
+            ),
           ],
         )
     );
   }
+
 
   takePhoto(ImageSource source) async {
     final pickedFile = await _picker.getImage(source: source);
