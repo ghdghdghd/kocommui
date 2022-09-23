@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
 
             ],
           ),
-          extendBodyBehindAppBar: true, // add this line
+          extendBodyBehindAppBar: false, //appbar영역 침범
 
           bottomNavigationBar: Container(
             color: Colors.white, //색상
@@ -192,3 +192,4 @@ class _popNoticeState extends State<popNotice> {
     );
   }
 }
+

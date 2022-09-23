@@ -21,6 +21,7 @@ class _popNoticeState extends State<popNotice> {
             },
             icon: Icon(Icons.arrow_back_ios_new),
             color: Colors.black,
+            //iconSize: 70,
           ),
           iconTheme: IconThemeData(
             color: Colors.black,
