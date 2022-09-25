@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kocommui/companion.dart';
+import 'package:kocommui/popNotice.dart';
 import 'package:kocommui/settings.dart';
 
 
@@ -134,7 +135,7 @@ class _HomeState extends State<Home> {
                     text: 'map',
                   ),
                   Tab(
-                    icon: Icon(
+                    icon:  Icon(
                         Icons.groups_outlined),
                     text: 'companion',
                   ),
@@ -153,43 +154,43 @@ class _HomeState extends State<Home> {
 }
 
 
-
-class popNotice extends StatefulWidget {
-  const popNotice({Key? key}) : super(key: key);
-
-  @override
-  State<popNotice> createState() => _popNoticeState();
-}
-
-class _popNoticeState extends State<popNotice> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: (){
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back_ios_new),
-            color: Colors.black,
-          ),
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-          title: Text(
-            '알림',
-            style: TextStyle(color: Colors.black),
-          ),
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-        ),
-
-      ),
-
-    );
-  }
-}
+//커스텀 다이얼로그
+// class popNotice extends StatefulWidget {
+//   const popNotice({Key? key}) : super(key: key);
+//
+//   @override
+//   State<popNotice> createState() => _popNoticeState();
+// }
+//
+// class _popNoticeState extends State<popNotice> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           leading: IconButton(
+//             onPressed: (){
+//               Navigator.pop(context);
+//             },
+//             icon: Icon(Icons.arrow_back_ios_new),
+//             color: Colors.black,
+//           ),
+//           iconTheme: IconThemeData(
+//             color: Colors.black,
+//           ),
+//           title: Text(
+//             '알림',
+//             style: TextStyle(color: Colors.black),
+//           ),
+//           centerTitle: true,
+//           elevation: 0.0,
+//           backgroundColor: Colors.transparent,
+//         ),
+//
+//       ),
+//
+//     );
+//   }
+// }
 

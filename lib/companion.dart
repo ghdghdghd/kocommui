@@ -2,6 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'addCompanion.dart';
+import 'companionDetail.dart';
+
 
 class companion extends StatefulWidget {
   const companion({Key? key}) : super(key: key);
@@ -26,30 +29,45 @@ class _companionState extends State<companion> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add, size: 40),
           backgroundColor: Colors.black,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => addCompanion())
+            );
+
+          },
       ),
       body: ListView.builder(
           itemCount: 3,
           itemBuilder: (c, i) {
             return Column(
               children: [
-                Card(
-                  shape: RoundedRectangleBorder( //모서리 둥글게 하기 위해 사용
-                      borderRadius : BorderRadius.circular(16.0)
-                  ),
-                  elevation: 4.0 ,//그림자 깊이
-                  child: Container(
-                    height: 140 ,
-                    width: 340,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(simpleTitle[i], style: TextStyle(fontSize: 25)),//간단한 한줄 소개
-                        SizedBox(height: 10.0),
-                        Text(country[i], style: TextStyle(fontSize: 20)),//지역명
-                        Text(day[i], style: TextStyle(fontSize: 18)),//날짜
-                        Text(searchTag[i], style: TextStyle(fontSize: 18)),//검색태그
-                      ],
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => companionDetail())
+                    );
+
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder( //모서리 둥글게 하기 위해 사용
+                        borderRadius : BorderRadius.circular(16.0)
+                    ),
+                    elevation: 4.0 ,//그림자 깊이
+                    child: Container(
+                      height: 140 ,
+                      width: 340,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(simpleTitle[i], style: TextStyle(fontSize: 25)),//간단한 한줄 소개
+                          SizedBox(height: 10.0),
+                          Text(country[i], style: TextStyle(fontSize: 20)),//지역명
+                          Text(day[i], style: TextStyle(fontSize: 18)),//날짜
+                          Text(searchTag[i], style: TextStyle(fontSize: 18)),//검색태그
+                        ],
+                      ),
                     ),
                   ),
                 )

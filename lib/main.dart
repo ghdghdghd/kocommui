@@ -64,8 +64,9 @@ class _MyAppState extends State<MyApp> {
             //   obscureText: true,
             // ),
             SizedBox(height: 10.0,),
-            RaisedButton(
-              color: Colors.green,
+
+            ElevatedButton(
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
               child: Text('네이버 로그인'),
               onPressed: () {
                 _usernameController.clear();
@@ -73,8 +74,8 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             SizedBox(height: 10.0,),
-            RaisedButton(
-              color: Colors.yellow,
+            ElevatedButton(
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.yellow)),
               child: Text('카카오 로그인'),
               onPressed: () {
                 _usernameController.clear();
