@@ -39,7 +39,7 @@ class _companionDetailState extends State<companionDetail> {
                   elevation: 4.0 ,//그림자 깊이
                   child: Container(
                     width: 330,
-                    height: 550,
+                    height: 530,
 
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,38 +48,39 @@ class _companionDetailState extends State<companionDetail> {
                         Text("지역명"),
                       ],
 
+
                     ),
+
                   ),
+
 
                   ),
                  SizedBox(height: 10.0),
                  Container(
                    width: 300,
-                   height: 30,
+                   height: 40,
                    child: Row(
 
                      crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
                        SizedBox(//버튼 사이즈 조절
                          width: 260,
-                         child: ElevatedButton(
-                                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.black)),
+                         child: TextButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(Colors.transparent),
+
+                                ),
+
                                 onPressed: () {
 
                                 },
-                                child: Text("동행 함께 하기")),
+                                child: Text("동행 함께 하기",style: TextStyle(color: Colors.black)),
+
+                         ),
                        ),
                        SizedBox(
-                         width: 40,
-                         child: CircleAvatar(
-                           radius: 30,
-                           backgroundColor: Color(0xFF000000),
-                           child: IconButton(
-                             icon: Icon(
-                               Icons.info_outline,
-                               color: Colors.white,
-                               size: 15,
-                             ),
+                         width: 30,
+                         child: IconButton(
                              onPressed: () {
                                showDialog(
                                    context: context,
@@ -95,8 +96,7 @@ class _companionDetailState extends State<companionDetail> {
                                    }
                                );
                              },
-                           ),
-                         ),
+                             icon: Icon(Icons.report_outlined))
 
                        )
                      ],
@@ -160,5 +160,6 @@ class _popNoticeState extends State<popNotice> {
     );
   }
 }
+
 
 
